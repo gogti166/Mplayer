@@ -1,0 +1,69 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0400
+header_name {.h}
+code_name {.cpp}
+Function {make_window()} {open
+} {
+  Fl_Window Window_Player {
+    label {VOA player} open
+    xywh {385 195 1080 574} type Double box GLEAM_UP_BOX color 246 visible
+  } {
+    Fl_Group Group_Lyric {open
+      xywh {10 20 710 480}
+    } {}
+    Fl_Progress {} {
+      xywh {15 505 700 10} box PLASTIC_ROUND_UP_BOX
+    }
+    Fl_Group Group_Control {open
+      xywh {15 515 700 50} align 0
+    } {
+      Fl_Box Box_ControlBoard {selected
+        xywh {15 520 700 40} box GLEAM_THIN_UP_BOX color 246 labelcolor 197 align 32
+      }
+      Fl_Button Button_Play {
+        label {@+2>}
+        callback Button_Play_Callback
+        xywh {345 525 40 30} box PLASTIC_UP_BOX color 97 labelcolor 109
+      }
+      Fl_Button {} {
+        label {@<<}
+        xywh {310 525 35 30} box PLASTIC_UP_BOX color 239 labelcolor 191
+      }
+      Fl_Button {} {
+        label {@>>}
+        xywh {385 525 35 30} box PLASTIC_UP_BOX color 239 labelcolor 191
+      }
+      Fl_Button Button_NextLrc {
+        label {@+2->}
+        callback Button_NextLrc_Callback
+        xywh {420 525 60 30} box PLASTIC_UP_BOX color 140 labelcolor 132
+      }
+      Fl_Button Button_LastLrc {
+        label {@+2<-}
+        callback Button_LastLrc_Callback
+        xywh {250 525 60 30} box PLASTIC_UP_BOX color 140 labelcolor 132
+      }
+    }
+    Fl_Group {} {open
+      xywh {730 15 340 555}
+    } {
+      Fl_Group Group_Creation {open
+        xywh {730 15 330 40}
+      } {
+        Fl_Box {} {
+          label {Create a list}
+          xywh {730 20 330 30} box GTK_DOWN_BOX color 54
+        }
+        Fl_Button Button_Create {
+          label {@fileopen}
+          callback Button_Create_Callback
+          xywh {1025 20 35 30} box GTK_UP_BOX down_box GTK_UP_BOX color 54 labelcolor 174
+        }
+      }
+      Fl_Browser Browser_List {
+        callback Browser_List_Callback
+        xywh {730 55 330 505} type Hold box GTK_DOWN_BOX selection_color 6
+      }
+    }
+  }
+}
